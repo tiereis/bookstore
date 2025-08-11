@@ -11,7 +11,9 @@ dependencies = [
     "pytest (>=8.4.1,<9.0.0)",
     "factory-boy (>=3.3.3,<4.0.0)",
     "django (>=5.2.5,<6.0.0)",
-    "djangorestframework (>=3.16.1,<4.0.0)"
+    "djangorestframework (>=3.16.1,<4.0.0)",
+    "pytest-django (>=4.11.1,<5.0.0)",
+    "faker (>=37.5.3,<38.0.0)"
 ]
 
 
