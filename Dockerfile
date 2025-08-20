@@ -1,5 +1,5 @@
 # `python-base` sets up all our shared environment variables
-FROM python:3.13-slim as python-base
+FROM python:3.13-slim AS python-base
 
     # python
 ENV PYTHONUNBUFFERED=1 \
@@ -49,14 +49,16 @@ RUN apt-get update \
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
 
+WORKDIR /app
+
 COPY poetry.lock pyproject.toml README.md ./
 
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
 RUN poetry install --without dev --no-root --sync
 
-WORKDIR /app
-
 COPY . .
+
+RUN poetry run pip list
 
 EXPOSE 8000
 
