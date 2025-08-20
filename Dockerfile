@@ -48,6 +48,7 @@ RUN apt-get update \
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
+
 COPY poetry.lock pyproject.toml README.md ./
 
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
@@ -55,8 +56,10 @@ RUN poetry install --without dev --no-root --sync
 
 WORKDIR /app
 
-COPY . /app/
+COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+ENV DJANGO_SETTINGS_MODULE=bookstore.settings
+
+CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
