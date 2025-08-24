@@ -25,6 +25,7 @@ jobs:
           # Variáveis de ambiente necessárias para o Django
           DJANGO_ALLOWED_HOSTS: 'localhost'
           SQL_ENGINE: 'django.db.backends.sqlite3'
+          SECRET_KEY: 'um-valor-secreto-para-os-testes'
         run: |
           poetry run python manage.py test
 
