@@ -20,12 +20,6 @@ services:
       - POSTGRES_USER=bookstore_dev
       - POSTGRES_PASSWORD=bookstore_dev
       - POSTGRES_DB=bookstore_dev_db
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: bridge
 
 volumes:
   postgres_data:
