@@ -30,6 +30,10 @@ jobs:
       shell: bash
       run: python -m poetry install
 
+    - name: Set environment variables
+      run: |
+        echo "DJANGO_ALLOWED_HOSTS=localhost" >> $GITHUB_ENV
+
     - name: Test
       run: |
         poetry run python manage.py test
