@@ -4,12 +4,12 @@ on: [pull_request]
 jobs:
   qa:
     name: Quality check
-    runs-on: ubuntu-latest  # Atualizado de ubuntu-18.04 para ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  # Atualizado de v1 para v4
+      - uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v5 # Atualizado de @master para @v5
+        uses: actions/setup-python@v5
         with:
           python-version: 3.13
 
